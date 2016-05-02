@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "Poll.ev Toolkit",
+  "description": "Simplified Polling",
+  "version": "1.0.0.0",
+
+  "icons": {
+    "128": "images/icon.png"
+  },
+
+  "permissions": [
+    "https://pollev.com/",
+    "http://pollev.com/",
+    "tabs",
+    "storage"
+  ],
+
+  "background": {
+    "scripts": ["bootstrap.js"],
+    "persistent": true
+  },
+
+   "content_scripts": [
+    {
+      "matches": ["https://pollev.com/*"],
+      "js": ["content_script.js"],
+	  "run_at": "document_end"
+    }
+  ],
+
+  "page_action": {
+    "default_title": "Poll.ev Toolkit",
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html"
+  },
+ "web_accessible_resources": ["injected_script.js"]
+}
